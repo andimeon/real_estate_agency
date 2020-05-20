@@ -18,6 +18,7 @@ class ClaimAdmin(admin.ModelAdmin):
 
 class OwnerAdmin(admin.ModelAdmin):
     raw_id_fields = ['ownership_apart']
+    list_display = ['owner']
 
 
 admin.site.register(Flat, FlatAdmin)
