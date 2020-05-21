@@ -17,7 +17,7 @@ class ClaimAdmin(admin.ModelAdmin):
 
 
 class OwnerAdmin(admin.ModelAdmin):
-    raw_id_fields = ['ownership_apart']
+    raw_id_fields = ['flats']
     list_display = ['owner']
 
 

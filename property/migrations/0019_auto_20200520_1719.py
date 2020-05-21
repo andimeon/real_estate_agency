@@ -7,8 +7,12 @@ def switch_owner_model(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
     for flat in Flat.objects.all():
-        flat_owner = flat.owner_old
-        Owner.objects.get_or_create(owner=flat_owner)
+        flat_phonenumber = flat.owners_phonenumber
+        flat_pure_phonenumber = flat.owner_phone_pure
+        Owner.objects.update_or_create(owner=flat.owner_old, defaults={
+            'owner_number': flat_phonenumber,
+            'owner_number_norm': flat_pure_phonenumber,
+        })
 
 
 class Migration(migrations.Migration):
