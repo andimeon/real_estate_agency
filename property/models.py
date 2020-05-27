@@ -5,7 +5,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Flat(models.Model):
-    flat_owner = models.CharField("ФИО владельца", max_length=200)
+    flat_owner = models.CharField("ФИО владельца", max_length=200, db_index=True)
     owners_phonenumber = models.CharField("Номер владельца", max_length=20)
     owner_phone_pure = PhoneNumberField(blank=True, verbose_name='Номер владельца', null=True)
     created_at = models.DateTimeField("Когда создано объявление", default=timezone.now, db_index=True)
