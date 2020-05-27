@@ -13,7 +13,7 @@ class FlatAdmin(admin.ModelAdmin):
 
 
 class ClaimAdmin(admin.ModelAdmin):
-    raw_id_fields = ['rooms_number', 'user']
+    raw_id_fields = ['rooms_number', 'customer']
 
 
 class OwnerAdmin(admin.ModelAdmin):
