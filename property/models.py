@@ -40,7 +40,7 @@ class Claim(models.Model):
 
 
 class Owner(models.Model):
-    owner = models.CharField("ФИО владельца", max_length=200)
+    owner = models.CharField("ФИО владельца", max_length=200, db_index=True)
     owner_number = models.CharField('Номер владельца', db_index=True, max_length=10)
     owner_number_norm = models.CharField('Нормализованный номер владельца', db_index=True, max_length=10)
     flats = models.ManyToManyField(Flat, verbose_name='Квартиры в собственности', blank=True,
