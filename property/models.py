@@ -34,7 +34,7 @@ class Flat(models.Model):
 
 
 class Claim(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Кто жаловался", blank=True, null=True)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Кто жаловался", blank=True, null=True)
     rooms_number = models.ForeignKey(Flat, on_delete=models.CASCADE, verbose_name="Номер комнаты")
     claim_text = models.TextField("Текст жалобы", blank=True, null=True)
 
