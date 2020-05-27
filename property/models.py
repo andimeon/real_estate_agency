@@ -36,12 +36,12 @@ class Flat(models.Model):
 class Claim(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Кто жаловался", blank=True, null=True)
     rooms_number = models.ForeignKey(Flat, on_delete=models.CASCADE, verbose_name="Номер комнаты")
-    claim_text = models.TextField("Текст жалобы", blank=True, null=True)
+    claim_text = models.TextField("Текст жалобы", blank=True)
 
 
 class Owner(models.Model):
     owner = models.CharField("ФИО владельца", max_length=200)
-    owner_number = models.CharField('Номер владельца', db_index=True, null=True, max_length=10)
-    owner_number_norm = models.CharField('Нормализованный номер владельца', db_index=True, null=True, max_length=10)
+    owner_number = models.CharField('Номер владельца', db_index=True, max_length=10)
+    owner_number_norm = models.CharField('Нормализованный номер владельца', db_index=True, max_length=10)
     flats = models.ManyToManyField(Flat, verbose_name='Квартиры в собственности', blank=True,
                                    related_name='owner_flats')
