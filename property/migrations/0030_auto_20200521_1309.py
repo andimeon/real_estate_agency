@@ -8,7 +8,8 @@ def fill_owner_flat(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     for owner in Owner.objects.all():
         owner_name = owner.owner
-        flat = Flat.objects.filter(flat_owner=owner_name)
+        owner_phone = owner.owner_number_norm
+        flat = Flat.objects.filter(flat_owner=owner_name, owner_phone_pure=owner_phone)
         owner.flats.set(flat)
 
 
