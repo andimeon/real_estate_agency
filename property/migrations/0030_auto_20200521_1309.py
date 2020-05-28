@@ -10,7 +10,6 @@ def fill_owner_flat(apps, schema_editor):
         owner_name = owner.owner
         flat = Flat.objects.filter(flat_owner=owner_name)
         owner.flats.set(flat)
-        owner.save()
 
 
 class Migration(migrations.Migration):
