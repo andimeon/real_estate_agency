@@ -34,10 +34,10 @@ class Flat(models.Model):
 
 
 class Claim(models.Model):
-    website_visitor = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Кто жаловался", blank=True, null=True,
-                                 related_name='liked')
+    claim_writer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Кто жаловался", blank=True, null=True,
+                                 related_name='claim_writers')
     rooms_number = models.ForeignKey(Flat, on_delete=models.CASCADE, verbose_name="Номер комнаты",
-                                     related_name='flat_active')
+                                     related_name='claim_rooms')
     claim_text = models.TextField("Текст жалобы", blank=True)
 
 
