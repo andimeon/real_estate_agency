@@ -34,7 +34,7 @@ class Flat(models.Model):
 
 
 class Claim(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Кто жаловался", blank=True, null=True,
+    website_visitor = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Кто жаловался", blank=True, null=True,
                                  related_name='liked')
     rooms_number = models.ForeignKey(Flat, on_delete=models.CASCADE, verbose_name="Номер комнаты",
                                      related_name='flat_active')
